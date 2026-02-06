@@ -1,0 +1,13 @@
+{
+  "$schema" : "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    "target": "es2024",
+    "module": "esnext",
+    "strict": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "moduleResolution": "node",
+    "types": ["chrome"]
+  },
+  "include": ["src/**/*"]
+}
