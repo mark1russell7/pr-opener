@@ -1,0 +1,19 @@
+{
+  "$schema" : "https://json.schemastore.org/package",
+  "name": "pr-opener",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.28.2",
+  "devDependencies": {
+    "@types/chrome": "^0.1.36",
+    "typescript": "^5.9.3"
+  }
+}

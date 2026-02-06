@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "PR Opener",
+  "version": "1.0",
+  "description": "Quickly open pull requests from the URL bar",
+  "omnibox": {
+    "keyword": "pull"
+  },
+  "background": {
+    "service_worker": "dist/background.js",
+    "type": "module"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "options_page": "options.html"
+}

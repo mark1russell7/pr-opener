@@ -1,0 +1,123 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  background: #f5f5f5;
+}
+
+h1 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.repo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.repo-item {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  background: white;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.repo-item.default {
+  border-color: #0066cc;
+  border-width: 2px;
+}
+
+.repo-item input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.repo-item input.name {
+  max-width: 150px;
+}
+
+.repo-item button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn-delete {
+  background: #ff4444;
+  color: white;
+}
+
+.btn-delete:hover {
+  background: #cc0000;
+}
+
+.btn-up,
+.btn-down {
+  background: #eee;
+  color: #333;
+}
+
+.btn-up:hover,
+.btn-down:hover {
+  background: #ddd;
+}
+
+.btn-add {
+  background: #0066cc;
+  color: white;
+  padding: 10px 20px;
+  margin-right: 8px;
+}
+
+.btn-add:hover {
+  background: #0055aa;
+}
+
+.btn-save {
+  background: #22aa22;
+  color: white;
+  padding: 10px 20px;
+}
+
+.btn-save:hover {
+  background: #119911;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.status {
+  margin-top: 12px;
+  padding: 10px;
+  border-radius: 4px;
+  display: none;
+}
+
+.status.success {
+  display: block;
+  background: #d4edda;
+  color: #155724;
+}
+
+.hint {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 16px;
+}
