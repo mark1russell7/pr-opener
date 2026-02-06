@@ -14,16 +14,19 @@ chrome.omnibox.onInputChanged.addListener(async (text, suggest) => {
 
   if (!prNumber) return;
 
-  // Build suggestions for each repo
+  // Update the default suggestion (shown in omnibox) to show first repo
+  chrome.omnibox.setDefaultSuggestion({
+    description: `PR #${prNumber} in ${repos[0].name} (Enter) — ↓ for more`,
+  });
+
+  // Build suggestions for other repos (shown in dropdown)
   // content format: "prNumber|repoIndex" so we know which repo was selected
-  const suggestions = repos.map((repo, index) => ({
-    content: `${prNumber}|${index}`,
+  const suggestions = repos.slice(1).map((repo, index) => ({
+    content: `${prNumber}|${index + 1}`,
     description: `PR #${prNumber} in ${repo.name}`,
   }));
 
-  // First suggestion becomes the default (shown in omnibox itself)
-  // Rest appear in the dropdown
-  suggest(suggestions.slice(1));
+  suggest(suggestions);
 });
 
 // When user presses Enter, navigate to the PR
