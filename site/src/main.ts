@@ -1,11 +1,12 @@
 // The start of the page. It sets the stand-in on globalThis first, because the real background.ts calls chrome when it loads.
-import { byId, copyText, h, setupTheme } from "@mark1russell7/site-pages/chrome";
+import { byId, copyText, h, setupTheme, showBuild } from "@mark1russell7/site-pages/chrome";
 import "@mark1russell7/site-pages/scroll-cue.css";
 import manifest from "../../manifest.json";
 import { ChromeStandIn, type Disposition } from "./chrome-stand-in.ts";
 import { LogView } from "./log-view.ts";
 import { SAMPLE_REPOS } from "./sample.ts";
 import { UrlBar } from "./url-bar.ts";
+import "@mark1russell7/site-pages/shell.css";
 import "./style.css";
 
 setupTheme(byId<HTMLButtonElement>("theme"), "pr-opener-theme");
@@ -168,11 +169,7 @@ for (const button of document.querySelectorAll<HTMLButtonElement>("button[data-c
   button.addEventListener("click", () => void copyText(button, byId(button.dataset["copy"]!).textContent ?? ""));
 }
 
-byId("build").append(
-  `Version ${__BUILD__.version}, build `,
-  __BUILD__.sha === "local" ? "local" : h("a", { href: `https://github.com/mark1russell7/pr-opener/commit/${__BUILD__.sha}` }, __BUILD__.sha),
-  ` of ${__BUILD__.date}`,
-);
+showBuild(byId("build"), __BUILD__, "mark1russell7/pr-opener");
 
 // A phone opens its keyboard on focus, so only a device with a mouse starts in the bar.
 if (matchMedia("(pointer: fine)").matches) input.focus({ preventScroll: true });

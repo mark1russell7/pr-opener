@@ -1,83 +1,36 @@
 /* The style of the site, with the light and dark look of the sites of mark1russell7. An event of Chrome is blue, a call of
    the extension is green, a note of the page is gray and a refused call is red. */
 :root {
-  color-scheme: light;
-  --bg: #f4f3ee;
-  --surface: #ffffff;
-  --sunken: #eceae3;
-  --ink: #191b23;
-  --muted: #5a5d6c;
-  --rule: #dad7cd;
   --some: #0f7f56;
   --some-bg: #dcf2e8;
   --value: #2346c4;
   --value-bg: #e2e8fb;
   --error: #b8352a;
   --error-bg: #fbe4df;
-  --focus: #2346c4;
-  --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --mono: ui-monospace, "Cascadia Mono", "SFMono-Regular", Menlo, Consolas, monospace;
-  --radius: 10px;
-  --width: 75rem;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    color-scheme: dark;
-    --bg: #0f1117;
-    --surface: #171a23;
-    --sunken: #1f2330;
-    --ink: #e8e9ef;
-    --muted: #a0a4b6;
-    --rule: #2e3345;
     --some: #4fd1a1;
     --some-bg: #15352b;
     --value: #93abff;
     --value-bg: #1d2747;
     --error: #ff8f80;
     --error-bg: #3e1f1b;
-    --focus: #93abff;
   }
 }
 
 :root[data-theme="dark"] {
-  color-scheme: dark;
-  --bg: #0f1117;
-  --surface: #171a23;
-  --sunken: #1f2330;
-  --ink: #e8e9ef;
-  --muted: #a0a4b6;
-  --rule: #2e3345;
   --some: #4fd1a1;
   --some-bg: #15352b;
   --value: #93abff;
   --value-bg: #1d2747;
   --error: #ff8f80;
   --error-bg: #3e1f1b;
-  --focus: #93abff;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
 }
 
 [hidden] {
   display: none !important;
-}
-
-html {
-  -webkit-text-size-adjust: 100%;
-}
-
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--ink);
-  font-family: var(--font);
-  font-size: 1rem;
-  line-height: 1.5;
 }
 
 a {
@@ -107,11 +60,6 @@ kbd {
   border-radius: 5px;
   padding: 0 0.35em;
   white-space: nowrap;
-}
-
-:focus-visible {
-  outline: 2px solid var(--focus);
-  outline-offset: 2px;
 }
 
 button,
@@ -145,55 +93,7 @@ button.primary {
   font-weight: 600;
 }
 
-.sr {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
-}
-
-.skip {
-  position: absolute;
-  left: 8px;
-  top: -40px;
-  background: var(--surface);
-  padding: 0.4rem 0.8rem;
-  border-radius: 8px;
-  z-index: 10;
-}
-
-.skip:focus {
-  top: 8px;
-}
-
 /* The header */
-.top {
-  max-width: var(--width);
-  margin: 0 auto;
-  padding: 1.1rem 16px 0.6rem;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 0.5rem 2rem;
-}
-
-.brand {
-  flex: 1 1 28rem;
-  min-width: 0;
-}
-
-.wordmark {
-  margin: 0;
-  font-size: 1.75rem;
-  letter-spacing: -0.02em;
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-}
-
 .mark {
   display: inline-flex;
   flex-direction: column;
@@ -212,40 +112,6 @@ button.primary {
 .mark i:nth-child(2) {
   width: 60%;
   background: var(--some);
-}
-
-.lead {
-  margin: 0.35rem 0 0;
-  color: var(--muted);
-  max-width: 46rem;
-}
-
-.links {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.25rem 1rem;
-  font-size: 0.95rem;
-}
-
-.links a {
-  text-decoration: none;
-}
-
-.links a:hover {
-  text-decoration: underline;
-}
-
-.theme {
-  min-height: 2rem;
-  padding: 0.15rem 0.6rem;
-  font-size: 0.875rem;
-}
-
-main {
-  max-width: var(--width);
-  margin: 0 auto;
-  padding: 0 16px;
 }
 
 .card {
@@ -789,15 +655,6 @@ main {
   min-height: 1.9rem;
   padding: 0.1rem 0.6rem;
   font-size: 0.8125rem;
-}
-
-.foot {
-  max-width: var(--width);
-  margin: 3rem auto 0;
-  padding: 16px;
-  border-top: 1px solid var(--rule);
-  color: var(--muted);
-  font-size: 0.875rem;
 }
 
 .foot p {
