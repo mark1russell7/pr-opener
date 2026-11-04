@@ -1,0 +1,20 @@
+# The CI of this repository: the shared CI of mark1russell7 (reusable-ci.yml of mark1russell7/template,
+# its CI.md). The job runs each standard script that package.json has: typecheck, test and build.
+# The scheduled run of pages.yml reads this workflow (the green-main step).
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions: {}
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  ci:
+    uses: mark1russell7/template/.github/workflows/reusable-ci.yml@21c4cb628bc2e0e1be5b21fa92fd3c688400ecab # main
+    permissions:
+      contents: read

@@ -2,6 +2,8 @@
 
 Chrome extension to quickly open pull requests from the URL bar.
 
+[Try it on the site](https://mark1russell7.github.io/pr-opener/): the page starts the real extension code in your browser.
+
 ## Installation
 
 1. Open Chrome and go to `chrome://extensions`
