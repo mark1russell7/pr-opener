@@ -1,0 +1,153 @@
+/* The look of the real options page inside the site. The real options.css comes first. These rules add the dark look, the
+   phone layout and stronger button colors. They change no behavior. */
+:root {
+  color-scheme: light;
+  --surface: #ffffff;
+  --sunken: #f4f3ee;
+  --ink: #191b23;
+  --muted: #5a5d6c;
+  --rule: #dad7cd;
+  --value: #2346c4;
+  --button: #eceae3;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --surface: #171a23;
+    --sunken: #1f2330;
+    --ink: #e8e9ef;
+    --muted: #a0a4b6;
+    --rule: #2e3345;
+    --value: #93abff;
+    --button: #2e3345;
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --surface: #171a23;
+  --sunken: #1f2330;
+  --ink: #e8e9ef;
+  --muted: #a0a4b6;
+  --rule: #2e3345;
+  --value: #93abff;
+  --button: #2e3345;
+}
+
+html {
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0 2px 2px;
+  max-width: none;
+  background: var(--surface);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+h1 {
+  font-size: 1.05rem;
+  margin: 0 0 0.25rem;
+}
+
+.hint {
+  font-size: 0.875rem;
+  color: var(--muted);
+  margin: 0 0 12px;
+}
+
+.repo-item {
+  background: var(--sunken);
+  border-color: var(--rule);
+  min-width: 0;
+}
+
+.repo-item.default {
+  border-color: var(--value);
+}
+
+.repo-item input {
+  min-width: 0;
+  background: var(--surface);
+  color: var(--ink);
+  border-color: var(--rule);
+}
+
+.repo-item input::placeholder {
+  color: var(--muted);
+}
+
+.repo-item button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.btn-up,
+.btn-down {
+  background: var(--button);
+  color: var(--ink);
+}
+
+.btn-up:hover:not(:disabled),
+.btn-down:hover:not(:disabled) {
+  background: var(--rule);
+}
+
+.btn-delete {
+  background: #c62828;
+}
+
+.btn-delete:hover {
+  background: #a31f1f;
+}
+
+.btn-add {
+  background: #2346c4;
+}
+
+.btn-add:hover {
+  background: #1b379b;
+}
+
+.btn-save {
+  background: #0f7f56;
+}
+
+.btn-save:hover {
+  background: #0b6443;
+}
+
+.btn-add,
+.btn-save {
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font: inherit;
+  min-height: 2.5rem;
+}
+
+:focus-visible {
+  outline: 2px solid var(--value);
+  outline-offset: 1px;
+}
+
+/* A narrow frame: each input has its own line, and the buttons share the last line. */
+@media (max-width: 34rem) {
+  .repo-item {
+    flex-wrap: wrap;
+  }
+
+  .repo-item input,
+  .repo-item input.name {
+    flex: 1 1 100%;
+    max-width: none;
+  }
+
+  .repo-item button {
+    flex: 1 1 0;
+    min-height: 2.5rem;
+  }
+}
