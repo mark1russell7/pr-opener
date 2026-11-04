@@ -19,7 +19,7 @@ importers:
     dependencies:
       '@mark1russell7/site-pages':
         specifier: ^0.2.0
-        version: 0.2.0
+        version: 0.2.1
     devDependencies:
       '@types/chrome':
         specifier: ^0.1.36
@@ -109,8 +109,16 @@ packages:
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
 
-  '@mark1russell7/site-pages@0.2.0':
-    resolution: {integrity: sha512-dahr/WG5PFj/zrcTk/NvufB6N3Tswc60vvGregftq9nraEgeHhaEr+s0zr/gbcOrK7Cz2EHiyO5F2inHc2utYw==}
+  '@mark1russell7/rigor-generators@0.1.5':
+    resolution: {integrity: sha512-YkABrG6+AV4oZKWoSIayDGxKTqcTMbp/eGa+3u00X09Jv9TfpHFDeqHlEQARMBzJ/kvy/EMNIXQZMGa3Nobuzw==}
+    engines: {node: '>=22'}
+
+  '@mark1russell7/rigor-statistics@0.1.9':
+    resolution: {integrity: sha512-J/hfIHyiVlguOZVfA6/B7L3ReAQAW1xUbT50e4KVxMCOHJfTVC1HIj0u+Qd+Vrn+J1JoDhAF/DJ7Elfpe12gjw==}
+    engines: {node: '>=22'}
+
+  '@mark1russell7/site-pages@0.2.1':
+    resolution: {integrity: sha512-7ayIH1dwCZ+WvaEXa/56xyzv2wjIs/DkztSbnmuD3lVl2bh/1QvNCC7bYFq1oFaTheChx8DwIBzebg0x7KlBBA==}
     engines: {node: '>=22'}
     hasBin: true
 
@@ -662,7 +670,15 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.6.0
 
-  '@mark1russell7/site-pages@0.2.0': {}
+  '@mark1russell7/rigor-generators@0.1.5': {}
+
+  '@mark1russell7/rigor-statistics@0.1.9':
+    dependencies:
+      '@mark1russell7/rigor-generators': 0.1.5
+
+  '@mark1russell7/site-pages@0.2.1':
+    dependencies:
+      '@mark1russell7/rigor-statistics': 0.1.9
 
   '@oxc-project/types@0.156.0': {}
 
