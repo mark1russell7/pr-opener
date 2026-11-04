@@ -18,8 +18,8 @@ importers:
   site:
     dependencies:
       '@mark1russell7/site-pages':
-        specifier: ^0.1.10
-        version: 0.1.10
+        specifier: ^0.2.0
+        version: 0.2.0
     devDependencies:
       '@types/chrome':
         specifier: ^0.1.36
@@ -109,8 +109,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
 
-  '@mark1russell7/site-pages@0.1.10':
-    resolution: {integrity: sha512-dcMPqlWsxJ+fRvl5cZH01a+/94ujk5ogRfg5puO2JC7pvE5jq1IV48UrcbtP+zcS5r9zMUbvUVz74E9xQYY8FQ==}
+  '@mark1russell7/site-pages@0.2.0':
+    resolution: {integrity: sha512-dahr/WG5PFj/zrcTk/NvufB6N3Tswc60vvGregftq9nraEgeHhaEr+s0zr/gbcOrK7Cz2EHiyO5F2inHc2utYw==}
     engines: {node: '>=22'}
     hasBin: true
 
@@ -662,7 +662,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.6.0
 
-  '@mark1russell7/site-pages@0.1.10': {}
+  '@mark1russell7/site-pages@0.2.0': {}
 
   '@oxc-project/types@0.156.0': {}
 
