@@ -18,8 +18,8 @@ importers:
   site:
     dependencies:
       '@mark1russell7/site-pages':
-        specifier: ^0.2.0
-        version: 0.2.10
+        specifier: ^0.3.4
+        version: 0.3.4
     devDependencies:
       '@types/chrome':
         specifier: ^0.1.36
@@ -117,8 +117,8 @@ packages:
     resolution: {integrity: sha512-J/hfIHyiVlguOZVfA6/B7L3ReAQAW1xUbT50e4KVxMCOHJfTVC1HIj0u+Qd+Vrn+J1JoDhAF/DJ7Elfpe12gjw==}
     engines: {node: '>=22'}
 
-  '@mark1russell7/site-pages@0.2.10':
-    resolution: {integrity: sha512-IxlxzSvURwFuKgk7NfRhLWEoFgB0iXCaDTpbphDJA+VrepZNs3kv54T6vPVvLyR9+FF5O6gD6wLJtHwXmqPNkQ==}
+  '@mark1russell7/site-pages@0.3.4':
+    resolution: {integrity: sha512-xxYaeElE6/HvADgO+2yu00c7svWw0ICQ99iD/2rYQVTLEvRqn40MDzi0gnCk37/LakH443xwYVvRw/YeZhj4PQ==}
     engines: {node: '>=22'}
     hasBin: true
 
@@ -676,7 +676,7 @@ snapshots:
     dependencies:
       '@mark1russell7/rigor-generators': 0.1.5
 
-  '@mark1russell7/site-pages@0.2.10':
+  '@mark1russell7/site-pages@0.3.4':
     dependencies:
       '@mark1russell7/rigor-statistics': 0.1.9
 
