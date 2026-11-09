@@ -16,6 +16,9 @@
   "author": "",
   "license": "ISC",
   "packageManager": "pnpm@10.28.2",
+  "dependencies": {
+    "@mark1russell7/text": "^0.0.2"
+  },
   "devDependencies": {
     "@types/chrome": "^0.1.36",
     "esbuild": "^0.28.2",

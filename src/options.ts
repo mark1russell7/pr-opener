@@ -1,3 +1,4 @@
+import { escapeAttribute as escapeHtml } from "@mark1russell7/text";
 import { Repo, DEFAULT_REPOS } from "./types.js";
 
 let repos: Repo[] = [];
@@ -60,14 +61,6 @@ function render() {
   repoListEl.querySelectorAll(".btn-delete").forEach((btn) => {
     btn.addEventListener("click", handleDelete);
   });
-}
-
-function escapeHtml(str: string): string {
-  return str
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
 }
 
 function handleInputChange(e: Event) {
