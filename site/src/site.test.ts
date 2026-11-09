@@ -6,6 +6,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import manifest from "../../manifest.json";
 import { ChromeStandIn, descriptionText, type LogEntry } from "./chrome-stand-in.ts";
 import { SAMPLE_REPOS } from "./sample.ts";
+import { NO_REPO_TEXT, NOT_A_NUMBER_TEXT } from "../../src/omnibox.ts";
 
 /** This function loads a new copy of the real background.ts against a new stand-in. */
 async function loadExtension(repos: readonly { name: string; url: string }[] = SAMPLE_REPOS): Promise<{ standIn: ChromeStandIn; log: LogEntry[] }> {
@@ -75,18 +76,39 @@ describe("the real background.ts", () => {
     await vi.waitFor(() => expect(standIn.tabs[0]?.url).toBe("https://github.com/mark1russell7/pr-opener/pull/5"));
   });
 
-  it("uses DEFAULT_REPOS for an empty list", async () => {
+  it("asks for a repo when the list is empty, and Enter opens nothing", async () => {
     const { standIn } = await loadExtension([]);
     standIn.changeInput("6");
-    await vi.waitFor(() => expect(standIn.defaultText("6")).toContain("owner/repo"));
+    await vi.waitFor(() => expect(standIn.defaultText("6")).toBe(NO_REPO_TEXT));
     expect(standIn.suggestions).toEqual([]);
+    const before = standIn.tabs.map((tab) => tab.url);
+    standIn.enterInput("6", "currentTab");
+    await new Promise((done) => setTimeout(done, 10));
+    expect(standIn.tabs.map((tab) => tab.url)).toEqual(before);
   });
 
-  it("keeps the old default row when a repo name is not valid XML", async () => {
-    const { standIn, log } = await loadExtension([{ name: "R&D", url: "https://example.com/pull/" }]);
+  it("escapes a repo name with the characters of XML, in the default row and in the dropdown", async () => {
+    const { standIn, log } = await loadExtension([
+      { name: "R&D", url: "https://example.com/pull/" },
+      { name: `<team> "x" 'y'`, url: "https://example.com/team/pull/" },
+    ]);
     standIn.changeInput("3");
-    await vi.waitFor(() => expect(log.some((entry) => entry.kind === "error" && entry.detail.includes("not valid XML"))).toBe(true));
-    expect(standIn.defaultText("3")).toBe("Enter PR number (e.g., 123)");
+    await vi.waitFor(() => expect(standIn.suggestions).toHaveLength(1));
+    expect(standIn.defaultText("3")).toBe("PR #3 in R&D (Enter) — ↓ for more");
+    expect(descriptionText(standIn.suggestions[0]!.description)).toBe(`PR #3 in <team> "x" 'y'`);
+    expect(log.some((entry) => entry.kind === "error")).toBe(false);
+  });
+
+  it("shows a hint for text that is not a PR number, and Enter opens nothing", async () => {
+    const { standIn, log } = await loadExtension();
+    standIn.changeInput("a<b & c");
+    await vi.waitFor(() => expect(standIn.defaultText("a<b & c")).toBe(NOT_A_NUMBER_TEXT));
+    expect(standIn.suggestions).toEqual([]);
+    expect(log.some((entry) => entry.kind === "error")).toBe(false);
+    const before = standIn.tabs.map((tab) => tab.url);
+    standIn.enterInput("12x|1", "currentTab");
+    await new Promise((done) => setTimeout(done, 10));
+    expect(standIn.tabs.map((tab) => tab.url)).toEqual(before);
   });
 });
 

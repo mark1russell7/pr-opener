@@ -167,8 +167,8 @@ check("Open again shows the stored list, with no change that is not saved", (fra
 // A bad name: Chrome reads a description as XML
 type(frameElement("input.name"), "R&D");
 click(frameElement("#save-btn"));
-check("a name with & gives a refused call in the log", await until(() => $$('#log .log-line[data-kind="error"]').length > 0), $("#log")?.textContent);
-check("the refusal names the XML rule", ($$('#log .log-line[data-kind="error"]')[0]?.textContent ?? "").includes("not valid XML"));
+check("a name with & shows in the default row, escaped for the XML", await until(() => rowText(0) === "PR #3 in R&D (Enter) — ↓ for more"), rowText(0));
+check("a name with & gives no refused call", $$('#log .log-line[data-kind="error"]').length === 0, $("#log")?.textContent);
 
 // An empty list: the real fallback of src/types.ts
 await reopen();
@@ -177,7 +177,7 @@ click(frameElement("#save-btn"));
 check("the storage has an empty list", await until(() => stored().length === 0), $("#storage")?.textContent);
 key("Escape");
 await search("6");
-check("an empty list gives DEFAULT_REPOS of src/types.ts", rowText(0).includes("owner/repo"), rowText(0));
+check("an empty list asks for a repo in the options", rowText(0) === "No repo yet: add one in the options of PR Opener", rowText(0));
 
 // Start again
 click("#reset");
