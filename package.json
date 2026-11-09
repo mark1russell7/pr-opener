@@ -1,13 +1,14 @@
 {
-  "$schema" : "https://json.schemastore.org/package",
+  "$schema": "https://json.schemastore.org/package",
   "name": "pr-opener",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsc",
-    "watch": "tsc --watch",
+    "build": "esbuild src/background.ts src/options.ts --bundle --format=esm --platform=browser --target=es2024 --outdir=dist && node scripts/check-bundle.ts",
+    "watch": "esbuild src/background.ts src/options.ts --bundle --format=esm --platform=browser --target=es2024 --outdir=dist --watch",
     "typecheck": "tsc --noEmit && pnpm --filter @pr-opener/site run typecheck",
     "test": "pnpm --filter @pr-opener/site run test"
   },
@@ -17,6 +18,7 @@
   "packageManager": "pnpm@10.28.2",
   "devDependencies": {
     "@types/chrome": "^0.1.36",
+    "esbuild": "^0.28.2",
     "typescript": "^5.9.3"
   }
 }

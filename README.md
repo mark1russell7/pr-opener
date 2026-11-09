@@ -31,8 +31,11 @@ If you have multiple repos configured, use arrow keys to select from the dropdow
 
 ```bash
 pnpm install
-pnpm build       # compile TypeScript
-pnpm watch       # compile on changes
+pnpm build       # bundle src/ into dist/ with esbuild, then check the bundle
+pnpm watch       # bundle again on changes
+pnpm typecheck   # type check with tsc (no output files)
 ```
+
+The build bundles each entry (`dist/background.js`, `dist/options.js`) into one file. So the extension can use npm packages: Manifest V3 loads no remote code, and the browser cannot resolve a package name. `scripts/check-bundle.ts` fails the build when an entry of `manifest.json` or `options.html` still imports another file.
 
 After making changes, go to `chrome://extensions` and click the refresh icon on the extension.
