@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@mark1russell7/text':
-        specifier: ^0.0.2
-        version: 0.0.2
+        specifier: ^0.0.4
+        version: 0.0.4
     devDependencies:
       '@types/chrome':
         specifier: ^0.1.36
@@ -29,7 +29,7 @@ importers:
     dependencies:
       '@mark1russell7/site-pages':
         specifier: ^0.4.3
-        version: 0.4.6
+        version: 0.4.7
     devDependencies:
       '@types/chrome':
         specifier: ^0.1.36
@@ -304,13 +304,13 @@ packages:
     resolution: {integrity: sha512-J/hfIHyiVlguOZVfA6/B7L3ReAQAW1xUbT50e4KVxMCOHJfTVC1HIj0u+Qd+Vrn+J1JoDhAF/DJ7Elfpe12gjw==}
     engines: {node: '>=22'}
 
-  '@mark1russell7/site-pages@0.4.6':
-    resolution: {integrity: sha512-h/vcASVZcbf3UhDBHlalot0PvAzt8tUpLC6ngZgZoZJSw9Aj3Pcm6lw5irKmP1o42aFI8SnhJvxSuC9PUWZPAg==}
+  '@mark1russell7/site-pages@0.4.7':
+    resolution: {integrity: sha512-NvqfZQAPKRDvrfzw3lTA/ialYSaanDhayjLN3RvwufZ1t/JtelzZxc+3lR4zf8N52sy2skVCocmIKLTJT/TGPg==}
     engines: {node: '>=22'}
     hasBin: true
 
-  '@mark1russell7/text@0.0.2':
-    resolution: {integrity: sha512-m1aIB8X+PDekktzr1fYOp1/7gvlh9iL/2M7ktj/GnmPmVrWin0rTADgTm00dKFdWFRzXraCUYkjyCl3jQZHEVg==}
+  '@mark1russell7/text@0.0.4':
+    resolution: {integrity: sha512-QzWuzlzE2wzCcfQ2Htfs2sHZVstJZ9UbNwDVc08aXtNRgdU635WrWyybgFTn/cLud0EPuvti4jHeR8mgZh9mdg==}
     engines: {node: '>=22.12'}
 
   '@oxc-project/types@0.156.0':
@@ -703,6 +703,7 @@ packages:
 
   tldts-core@7.4.20:
     resolution: {integrity: sha512-C630TWXZCZmLq0F2bW4QqwnaaxCQ/svpAqvJwnC4JvgEM5ohhBnGsEzTLSOXcN+xjz+kEaHS5uoWIw2klnqd0A==}
+    deprecated: Partial release, see https://github.com/remusao/tldts/issues/2735. Use >=7.4.22.
 
   tldts@7.4.19:
     resolution: {integrity: sha512-48dH6aSpQnpbzDUc4vIQZ1VjB8tkK+e8c1yx05/SZK+rkssgjEOlxDd/yU8/a4vGYQ9vRgJr9dwMq9TJ0b3X2Q==}
@@ -995,11 +996,11 @@ snapshots:
     dependencies:
       '@mark1russell7/rigor-generators': 0.1.5
 
-  '@mark1russell7/site-pages@0.4.6':
+  '@mark1russell7/site-pages@0.4.7':
     dependencies:
       '@mark1russell7/rigor-statistics': 0.1.9
 
-  '@mark1russell7/text@0.0.2': {}
+  '@mark1russell7/text@0.0.4': {}
 
   '@oxc-project/types@0.156.0': {}
 
