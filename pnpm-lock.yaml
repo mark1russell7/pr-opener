@@ -18,6 +18,9 @@ importers:
       '@types/chrome':
         specifier: ^0.1.36
         version: 0.1.36
+      '@types/node':
+        specifier: ^25.0.2
+        version: 25.9.9
       '@vitest/coverage-v8':
         specifier: ^5.0.3
         version: 5.1.0(vitest@5.1.0)
