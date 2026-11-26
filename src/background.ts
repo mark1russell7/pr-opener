@@ -1,10 +1,10 @@
-import { Repo, DEFAULT_REPOS } from "./types.js";
+import { type Repo, DEFAULT_REPOS } from "./types.js";
 import { NO_REPO_TEXT, NOT_A_NUMBER_TEXT, START_TEXT, prNumberOf, xmlText } from "./omnibox.js";
 
 // Get configured repos from storage
 async function getRepos(): Promise<Repo[]> {
   const result = await chrome.storage.sync.get("repos");
-  const repos = result.repos as Repo[] | undefined;
+  const repos = result["repos"] as Repo[] | undefined;
   return repos && repos.length > 0 ? repos : DEFAULT_REPOS;
 }
 

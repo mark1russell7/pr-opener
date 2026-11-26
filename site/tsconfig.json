@@ -2,8 +2,14 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "@mark1russell7/cue/ts/config/vite.json",
   "compilerOptions": {
+    "rootDir": "${configDir}/..",
+    "importHelpers": false,
     "target": "es2023",
-    "lib": ["es2023", "dom", "dom.iterable"],
+    "lib": [
+      "es2023",
+      "dom",
+      "dom.iterable"
+    ],
     "noEmit": true,
     "allowImportingTsExtensions": true,
     "composite": false,
@@ -11,8 +17,15 @@
     "isolatedDeclarations": false,
     "declaration": false,
     "declarationMap": false,
-    "types": ["vite/client", "chrome"]
+    "types": [
+      "vite/client",
+      "chrome"
+    ]
   },
-  "include": ["src/**/*"],
-  "exclude": ["src/**/*.test.ts"]
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "src/**/*.test.ts"
+  ]
 }

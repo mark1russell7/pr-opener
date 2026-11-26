@@ -1,5 +1,5 @@
 import { escapeAttribute as escapeHtml } from "@mark1russell7/text";
-import { Repo, DEFAULT_REPOS } from "./types.js";
+import { type Repo, DEFAULT_REPOS } from "./types.js";
 
 let repos: Repo[] = [];
 
@@ -11,7 +11,7 @@ const statusEl = document.getElementById("status")!;
 // Load repos from storage
 async function loadRepos() {
   const result = await chrome.storage.sync.get("repos");
-  const stored = result.repos as Repo[] | undefined;
+  const stored = result["repos"] as Repo[] | undefined;
   repos = stored && stored.length > 0 ? stored : DEFAULT_REPOS;
   render();
 }
@@ -65,32 +65,42 @@ function render() {
 
 function handleInputChange(e: Event) {
   const input = e.target as HTMLInputElement;
-  const index = parseInt(input.dataset.index!, 10);
-  const field = input.dataset.field as "name" | "url";
-  repos[index][field] = input.value;
+  const index = parseInt(input.dataset["index"] ?? "", 10);
+  const field = input.dataset["field"] as "name" | "url";
+  const repo = repos[index];
+  if (repo !== undefined) repo[field] = input.value;
+}
+
+/** Swaps two repos of the list. An index outside the list changes nothing. */
+function swap(i: number, j: number): void {
+  const a = repos[i];
+  const b = repos[j];
+  if (a === undefined || b === undefined) return;
+  repos[i] = b;
+  repos[j] = a;
 }
 
 function handleMoveUp(e: Event) {
   const btn = e.target as HTMLButtonElement;
-  const index = parseInt(btn.dataset.index!, 10);
+  const index = parseInt(btn.dataset["index"] ?? "", 10);
   if (index > 0) {
-    [repos[index - 1], repos[index]] = [repos[index], repos[index - 1]];
+    swap(index - 1, index);
     render();
   }
 }
 
 function handleMoveDown(e: Event) {
   const btn = e.target as HTMLButtonElement;
-  const index = parseInt(btn.dataset.index!, 10);
+  const index = parseInt(btn.dataset["index"] ?? "", 10);
   if (index < repos.length - 1) {
-    [repos[index], repos[index + 1]] = [repos[index + 1], repos[index]];
+    swap(index, index + 1);
     render();
   }
 }
 
 function handleDelete(e: Event) {
   const btn = e.target as HTMLButtonElement;
-  const index = parseInt(btn.dataset.index!, 10);
+  const index = parseInt(btn.dataset["index"] ?? "", 10);
   repos.splice(index, 1);
   render();
 }
