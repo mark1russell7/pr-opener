@@ -9,8 +9,9 @@
   "scripts": {
     "build": "esbuild src/background.ts src/options.ts --bundle --format=esm --platform=browser --target=es2024 --outdir=dist && node scripts/check-bundle.ts",
     "watch": "esbuild src/background.ts src/options.ts --bundle --format=esm --platform=browser --target=es2024 --outdir=dist --watch",
-    "typecheck": "tsc --noEmit && pnpm --filter @pr-opener/site run typecheck",
-    "test": "pnpm --filter @pr-opener/site run test"
+    "typecheck": "tsc --noEmit && tsc -p tsconfig.repo.json && pnpm --filter @pr-opener/site run typecheck",
+    "test": "pnpm --filter @pr-opener/site run test",
+    "check:conventions": "conventions check"
   },
   "keywords": [],
   "author": "",
@@ -20,9 +21,20 @@
     "@mark1russell7/text": "^0.0.20"
   },
   "devDependencies": {
+    "@mark1russell7/conventions": "^0.53.2",
     "@types/chrome": "^0.1.36",
+    "@types/node": "^25.0.2",
     "@vitest/coverage-v8": "^5.0.3",
     "esbuild": "^0.28.2",
     "typescript": "^5.9.3"
+  },
+  "conventions": {
+    "rules": {
+      "no-console": {
+        "baseline": 0,
+        "failFrom": "2027-01-20",
+        "reason": "The census of 2026-11-25 found no console call. A new call fails at once, and each call fails from 2027-01-20."
+      }
+    }
   }
 }
