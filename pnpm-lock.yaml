@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@mark1russell7/text':
-        specifier: ^0.0.18
-        version: 0.0.18
+        specifier: ^0.0.20
+        version: 0.0.20
     devDependencies:
       '@types/chrome':
         specifier: ^0.1.36
@@ -29,7 +29,7 @@ importers:
     dependencies:
       '@mark1russell7/site-pages':
         specifier: ^0.8.0
-        version: 0.8.4
+        version: 0.8.7
     devDependencies:
       '@types/chrome':
         specifier: ^0.1.36
@@ -313,13 +313,13 @@ packages:
     resolution: {integrity: sha512-jaUqrz8FmsUoR9n0MeRUIk9UTpG5QL+dF/moh+C23fyihb00LgOD42Up//1piIPVZZDiq6lua0sBcSKMwh5IFg==}
     engines: {node: '>=22'}
 
-  '@mark1russell7/site-pages@0.8.4':
-    resolution: {integrity: sha512-pC0qcQqIsfQg5jTg+peUP/DGBXb4d1PQYiu6TCeCE1ALc5X8nyGhj9vMYKBCdhK7uHm8Chtx7INLKPWPmxpK3w==}
+  '@mark1russell7/site-pages@0.8.7':
+    resolution: {integrity: sha512-0U814F6nv69ueZ82B+PKkHH/Y8qapXNTFo2KMchvfqBcEkYh+2eQYAGdPzJANR+xni9HJZVpeC2nu+/lCeaEDQ==}
     engines: {node: '>=22'}
     hasBin: true
 
-  '@mark1russell7/text@0.0.18':
-    resolution: {integrity: sha512-sIOsTkBOhWLSDyE4qKyiokUT84NPJgPuhLPDyh2Y+mjGnNbGhF9Q6dt9NnSBtSW8C1D0rZfx8fPJ53g0gQGWfQ==}
+  '@mark1russell7/text@0.0.20':
+    resolution: {integrity: sha512-HrjBak4BE0fDC+bLzFi/c4NDCHqiUm7VhYR5YhJmkApRSB8mUOao4bFiO9Jy3xwpsCGJCj4echVDCUxXjV+3NA==}
     engines: {node: '>=22.12'}
 
   '@napi-rs/wasm-runtime@1.2.6':
@@ -1043,11 +1043,11 @@ snapshots:
     dependencies:
       '@mark1russell7/rigor-generators': 0.1.16
 
-  '@mark1russell7/site-pages@0.8.4':
+  '@mark1russell7/site-pages@0.8.7':
     dependencies:
       '@mark1russell7/rigor-statistics': 0.2.5
 
-  '@mark1russell7/text@0.0.18': {}
+  '@mark1russell7/text@0.0.20': {}
 
   '@napi-rs/wasm-runtime@1.2.6(@emnapi/core@2.0.0-beta.2)(@emnapi/runtime@2.0.0-beta.2)':
     dependencies:
