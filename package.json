@@ -23,7 +23,7 @@
   "devDependencies": {
     "@mark1russell7/conventions": "^0.56.0",
     "@types/chrome": "^0.1.36",
-    "@types/node": "^25.0.2",
+    "@types/node": "^26.0.0",
     "@vitest/coverage-v8": "^5.0.3",
     "esbuild": "^0.28.2",
     "typescript": "^5.9.3"
